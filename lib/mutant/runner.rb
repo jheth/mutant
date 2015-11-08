@@ -27,6 +27,12 @@ module Mutant
       @result = @collector.result
 
       reporter.report(result)
+
+      if env.config.json_dump
+        require 'json'
+        hash = Reporter::Hash::Printer::EnvResult.call(@result)
+        File.open(env.config.json_dump, 'w') {|f| f.write(hash.to_json) }
+      end
     end
 
     # Return result

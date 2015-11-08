@@ -11,6 +11,7 @@ module Mutant
       :isolation,
       :fail_fast,
       :jobs,
+      :json_dump,
       :zombie,
       :expected_coverage
     )
